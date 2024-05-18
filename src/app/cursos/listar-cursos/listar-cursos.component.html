@@ -5,8 +5,8 @@
     <thead>
     <tr>
       <th scope="col">Codigo</th>
-      <th scope="col">Programa</th>
-      <th scope="col">Curso</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
       <th scope="col">Eliminar</th>
     </tr>
     </thead>
@@ -16,8 +16,8 @@
     <ng-container *ngFor="let curso of cursos">
       <tr>
         <td (click)="onSelected(curso)" class="clickable">{{curso.id}}</td>
-        <td (click)="onSelected(curso)" class="clickable">{{curso.programa}}</td>
-        <td (click)="onSelected(curso)" class="clickable">{{curso.curso}}</td>
+        <td (click)="onSelected(curso)" class="clickable">{{curso.contrasena}}</td>
+        <td (click)="onSelected(curso)" class="clickable">{{curso.correo}}</td>
         <td (click)="borrarCurso(curso)" class="clickable"><img src="../../../assets/delete.png"  alt="borrar curso"/></td>
       </tr>
     </ng-container>

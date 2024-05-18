@@ -7,7 +7,7 @@ import {map, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class CursoService {
-  private baseUrl: string = "http://test.denkitronik.com"; //TODO: Agregar url del servicio
+  private baseUrl: string = "http://localhost:8080/api/usuario"; //TODO: Agregar url del servicio
 
   constructor(private httpClient: HttpClient) {
 
@@ -18,11 +18,11 @@ export class CursoService {
    * @returns Observable<Curso[]> Lista de cursos
    */
   getCursos(): Observable<Curso[]> {
-    return this.httpClient.get<Curso[]>(this.baseUrl+"/cursoes")
+    return this.httpClient.get<Curso[]>(this.baseUrl+"/usuario")
       .pipe(
         map((result:any)=>{
-          console.log(result._embedded.cursoes);
-          return result._embedded.cursoes;
+          console.log(result);
+          return result;
         }));
   }
 
@@ -30,7 +30,7 @@ export class CursoService {
    * Metodo que obtiene un curso
    */
   getCurso(idCurso: number): Observable<Curso> {
-    return this.httpClient.get<Curso>(this.baseUrl + '/cursoes/' + idCurso);
+    return this.httpClient.get<Curso>(this.baseUrl + '/usuario/' + idCurso);
   }
 
   /**
@@ -38,7 +38,7 @@ export class CursoService {
    * @param curso Curso a crear
    */
   crearCurso(curso: Curso): Observable<Curso> {
-    return this.httpClient.post<Curso>(this.baseUrl+"/cursoes", curso);
+    return this.httpClient.post<Curso>(this.baseUrl+"/usuario", curso);
   }
 
   /**
@@ -46,14 +46,14 @@ export class CursoService {
    * @param curso Curso a editar
    */
   editarCurso(curso: Curso): Observable<Curso> {
-    return this.httpClient.put<Curso>(this.baseUrl+"/cursoes/"+curso.id, curso);
+    return this.httpClient.put<Curso>(this.baseUrl+"/usuario", curso);
   }
 
   /**
    * Metodo que elimina un curso
    */
   borrarCurso(idCurso: number): Observable<any> {
-    return this.httpClient.delete(this.baseUrl + "/cursoes/" + idCurso);
+    return this.httpClient.delete(this.baseUrl + "/usuario/" + idCurso);
   }
 
 

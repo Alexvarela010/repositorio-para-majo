@@ -5,7 +5,7 @@
  */
 export class Curso {
   public id!: number;
-  public curso!: string;
-  public programa!: string;
+  public correo!: string;
+  public contrasena!: string;
 }
 

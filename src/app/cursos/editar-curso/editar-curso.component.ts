@@ -15,8 +15,8 @@ export class EditarCursoComponent implements OnInit {
   // Creamos e inicializamos el formulario editarCursoForm usando el constructor de FormGroup
   public editarCursoForm: FormGroup= new FormGroup({
     id: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    curso: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    programa: new FormControl('',[Validators.required,Validators.minLength(4)])
+    correo: new FormControl('',[Validators.required,Validators.minLength(2)]),
+    contrasena: new FormControl('',[Validators.required,Validators.minLength(4)])
   });
 
   // Creamos un atributo (relacion) curso que es el que vamos a editar
@@ -51,7 +51,7 @@ export class EditarCursoComponent implements OnInit {
         // console.log(curso);
         Swal.fire( // Le decimos al usuario que el curso ha sido editado
           'Curso editado',
-          `El curso ${curso.curso} ha sido actualizado con exito`,
+          `El curso ${curso.correo} ha sido actualizado con exito`,
           'success'
         );
         this.router.navigate(['/listar']); //Redirecciona a la ruta /listar
@@ -69,8 +69,8 @@ export class EditarCursoComponent implements OnInit {
       // console.log(this.curso);
       this.editarCursoForm = this.formBuilder.group({ // Creamos el formulario editarCursoForm
         id: [this.curso.id, []], // mostramos el Id del curso. El id no se puede editar
-        curso: [this.curso.curso, [Validators.required, Validators.minLength(4)]], // Mostramos el nombre del curso
-        programa: [this.curso.programa, [Validators.required, Validators.minLength(4)]] // Mostramos el programa del curso
+        correo: [this.curso.correo, [Validators.required, Validators.minLength(4)]], // Mostramos el nombre del curso
+        contrasena: [this.curso.contrasena, [Validators.required, Validators.minLength(4)]] // Mostramos el programa del curso
       });
     });
   }

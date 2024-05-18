@@ -12,8 +12,8 @@ import {Router} from "@angular/router";
 })
 export class CrearCursoComponent implements OnInit {
   public crearCursoForm: FormGroup= new FormGroup({
-    curso: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    programa: new FormControl('',[Validators.required,Validators.minLength(4)])
+    correo: new FormControl('',[Validators.required,Validators.minLength(4)]),
+    contrasena: new FormControl('',[Validators.required,Validators.minLength(4)])
   });
 
   /**
@@ -43,7 +43,7 @@ export class CrearCursoComponent implements OnInit {
         // console.log(curso);
         Swal.fire(
           'Curso creado',
-          `El curso ${curso.curso} ha sido creado con exito`,
+          `El curso ${curso.correo} ha sido creado con exito`,
           'success'
         );
         this.crearCursoForm.reset();  //Resetea el formulario
@@ -53,8 +53,8 @@ export class CrearCursoComponent implements OnInit {
 //regexp: regular expression
   ngOnInit(): void {
     this.crearCursoForm = this.formBuilder.group({
-      curso: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
-      programa: ['', [Validators.required, Validators.minLength(4)]]
+      correo: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
+      contrasena: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 }
